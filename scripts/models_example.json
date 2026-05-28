@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://example.com/models/cnn_model.pth",
+    "path": "CNN_module/cnn_model.pth"
+  },
+  {
+    "url": "https://example.com/models/transformer_model.pth",
+    "path": "Transformer_module/transformer_model.pth"
+  },
+  {
+    "url": "https://example.com/models/rf_email_spam_model.pkl",
+    "path": "rf_email_spam_model.pkl"
+  }
+]
