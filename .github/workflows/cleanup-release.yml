@@ -1,0 +1,44 @@
+name: Cleanup old release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Delete release-v1.1 assets and release
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const tagName = 'release-v1.1';
+
+            let release;
+            try {
+              const response = await github.rest.repos.getReleaseByTag({ owner, repo, tag: tagName });
+              release = response.data;
+            } catch (error) {
+              core.info(`Release ${tagName} not found, nothing to delete.`);
+              return;
+            }
+
+            for (const asset of release.assets) {
+              core.info(`Deleting asset ${asset.name} (${asset.id})`);
+              await github.rest.repos.deleteReleaseAsset({ owner, repo, asset_id: asset.id });
+            }
+
+            core.info(`Deleting release ${release.id}`);
+            await github.rest.repos.deleteRelease({ owner, repo, release_id: release.id });
+
+            try {
+              core.info(`Deleting tag ref refs/tags/${tagName}`);
+              await github.rest.git.deleteRef({ owner, repo, ref: `tags/${tagName}` });
+            } catch (error) {
+              core.info(`Tag ref ${tagName} could not be deleted or was already missing.`);
+            }
