@@ -1,0 +1,11 @@
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+*.pkl
+*.pth
+*.safetensors
+data/
+CNN_module/cnn_model.pth
+Transformer_module/transformer_model.pth
+Transformer_module/my_bert_model/
+rf_email_spam_model.pkl
