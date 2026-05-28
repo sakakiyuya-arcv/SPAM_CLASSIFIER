@@ -1,5 +1,8 @@
 __pycache__/
 .ipynb_checkpoints/
 *.pyc
+*.pkl
+*.pth
+*.safetensors
 data/
 Transformer_module/my_bert_model/
