@@ -25,4 +25,5 @@ jobs:
           files: |
             CNN_module/cnn_model.pth
             Transformer_module/transformer_model.pth
+            SNN_module/snn_model.pth
             rf_email_spam_model.pkl
