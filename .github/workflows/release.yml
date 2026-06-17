@@ -16,12 +16,6 @@ jobs:
         with:
           lfs: true
 
-      - name: Download 1.3 models
-        run: |
-          gh release download release-v1.3 --dir downloaded_models
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Create GitHub Release and upload assets
         uses: softprops/action-gh-release@v2
         with:
@@ -29,10 +23,7 @@ jobs:
           name: ${{ github.ref_name }}
           body: "Automated release containing model assets."
           files: |
+            CNN_module/cnn_model.pth
+            Transformer_module/transformer_model.pth
             SNN_module/snn_model.pth
-            SNN_module/tfidf_vectorizer.pkl
-            Transformer_module/my_bert_model/model.safetensors
-            Transformer_module/my_bert_model/config.json
-            Transformer_module/my_bert_model/tokenizer_config.json
-            Transformer_module/my_bert_model/vocab.txt
-            downloaded_models/*
+            rf_email_spam_model.pkl
