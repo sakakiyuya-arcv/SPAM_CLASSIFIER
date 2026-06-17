@@ -23,6 +23,9 @@ jobs:
           name: ${{ github.ref_name }}
           body: "Automated release containing model assets."
           files: |
-            CNN_module/cnn_model.pth
-            Transformer_module/transformer_model.pth
-            rf_email_spam_model.pkl
+            SNN_module/snn_model.pth
+            SNN_module/tfidf_vectorizer.pkl
+            Transformer_module/my_bert_model/model.safetensors
+            Transformer_module/my_bert_model/config.json
+            Transformer_module/my_bert_model/tokenizer_config.json
+            Transformer_module/my_bert_model/vocab.txt
