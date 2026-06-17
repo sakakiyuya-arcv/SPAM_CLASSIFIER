@@ -27,3 +27,4 @@ jobs:
             Transformer_module/transformer_model.pth
             SNN_module/snn_model.pth
             rf_email_spam_model.pkl
+            data/*.csv
