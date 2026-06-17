@@ -12,7 +12,12 @@ data preprocessing utilities, and notebook demos.
 
 ## Quick start
 1. Create a Python venv and install dependencies (PyTorch, snntorch, transformers, scikit-learn, joblib).
-2. Download the model files (`*.pth`, `*.safetensors`, `rf_email_spam_model.pkl`) from the latest GitHub Release (or use `scripts/download_models.py`).
+2. Download the model files from the latest GitHub Release (or use `scripts/download_models.py` if configured):
+   - Place `cnn_model.pth` in `CNN_module/`
+   - Place `snn_model.pth` and `tfidf_vectorizer.pkl` in `SNN_module/`
+   - Place `transformer_model.pth` in `Transformer_module/`
+   - **Important**: Download `model.safetensors`, `config.json`, `vocab.txt`, and `tokenizer_config.json` and place them all inside a new folder named `Transformer_module/my_bert_model/` (Create this folder if it doesn't exist).
+   - Place `rf_email_spam_model.pkl` in the root folder.
 3. Run `main.ipynb` or import `CNN_module.cnn_engine` / `SNN_module.snn_engine` / `Transformer_module.transformer_engine`.
 
 ## Notes
